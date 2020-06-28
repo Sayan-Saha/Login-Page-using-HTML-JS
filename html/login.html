@@ -8,6 +8,7 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
   <body>
     <nav class="navbar navbar-expand-sm bg-transparent navbar-dark">
@@ -39,47 +40,59 @@
               <h3>Sign In</h3>
             </div>
 <br>
-            <form id="form" action="home.html">
+            <form id="form" method="POST" >
               <div class="form-group text-left font-weight-bold">
                 <label for="userName">User Name</label>
                 <input
                   type="text"
                   id="userName"
+                  name="userName"
                   class="form-control"
                   placeholder="Enter User Name"
-                  onchange="validate(this)"
+                  oninput="validate(this)"
                   minlength="3"
                   autocomplete="off"
                   autofocus
                 />
-                <span id="userNameError" class="text-danger"></span>
+                <span id="userNameError" class="text-danger font-weight-normal"></span>
               </div>
               <div class="form-group text-left font-weight-bold">
-                <label for="password">Password</label>
-                <input
+                
+                  <label for="password">Password</label>
+                  <div class="input-group">
+                  <input
                   type="password"
+                  name="password"
                   id="password"
                   class="form-control"
                   placeholder="Enter Password"
-                  onchange="validate(this)"
+                  oninput="validate(this)"
                   minlength="5"
                   autocomplete="off"
                 />
-                <span id="passwordError" class="text-danger"></span>
+                <div class="input-group-append">
+                  <div class="input-group-text" onclick="togglePassword()"><i id="eye" class="fa fa-eye-slash"></i></div> 
+                </div>
+                
+                <span id="passwordError" class="font-weight-normal text-danger"></span>
+                </div>
+                
+                
+                
               </div>
               <button
                 class="btn btn-primary"
                 id="submitButton"
-                onclick="login()"
+                type="submit"
                 disabled
               >
                 Sign In
               </button>
-              <a href="../html/login.html" class="btn btn-danger">Reset</a>
+              <button type="reset" id="resetButton" class="btn btn-danger">Reset</button>
             </form>
 <br>
             <div class="card-footer text-muted text-center mb-1 mt-1">
-              Can't Log in? Please Contact <a href="#" id="admin" data-placement="top" title="Sayan Saha">Admin</a>.
+              Can't Log in? Please Contact <a href="#" id="admin" title="Sayan Saha | 9712356698">Admin</a>.
             </div>
           </div>
         </div>
